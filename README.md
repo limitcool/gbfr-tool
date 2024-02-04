@@ -2,6 +2,8 @@
 
 `GBFR-Tool` 是一个用于 `Granblue Fantasy Relink` 存档修改的工具。
 
+![界面图片](https://github.com/limitcool/gbfr-tool/blob/main/assets/screenshot.png?raw=true)
+
 ## 使用方法
 
 1. **拖拽存档文件:**
