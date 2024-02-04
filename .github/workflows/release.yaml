@@ -33,15 +33,18 @@ jobs:
         uses: swatinem/rust-cache@v2
         with:
           workspaces: './src-tauri -> target'
-
-      - name: Sync node version and setup cache
-        uses: actions/setup-node@v3
+      - name: install pnpm
+        uses: pnpm/action-setup@v2
         with:
-          node-version: 'lts/*'
-          cache: 'pnpm' # Set this to npm, yarn or pnpm.
-      - name: Install pnpm
-        # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
-        run: npm install -g pnpm # Change this to npm, yarn or pnpm.
+          version: 8.12.0
+    #   - name: Sync node version and setup cache
+    #     uses: actions/setup-node@v3
+    #     with:
+    #       node-version: 'lts/*'
+    #       cache: 'pnpm' # Set this to npm, yarn or pnpm.
+    #   - name: Install pnpm
+    #     # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
+    #     run: npm install -g pnpm # Change this to npm, yarn or pnpm.
       - name: Install frontend dependencies
         # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
         run: pnpm install # Change this to npm, yarn or pnpm.
