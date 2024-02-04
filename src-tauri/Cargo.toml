@@ -1,0 +1,29 @@
+[package]
+name = "gbfr-tool"
+version = "0.1.0"
+description = "GBFR-Tool 是一个用于 Granblue Fantasy Relink 存档修改的工具。"
+authors = ["initcool"]
+license = ""
+repository = ""
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.4", features = [] }
+
+[dependencies]
+tauri = { version = "1.4", features = [
+    "dialog-all",
+    "fs-write-file",
+    "fs-read-file",
+    "shell-open",
+] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hex = "0.4.3"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
