@@ -1,11 +1,11 @@
 <script lang="ts">
   import FileDrop from "svelte-tauri-filedrop";
   import { invoke } from "@tauri-apps/api/tauri";
+  import Swal from "sweetalert2";
   // import { fs } from "@tauri-apps/api";
 
   let steamId;
   let savePath = "";
-
   async function save() {
     // if (isNaN(steamId)) {
     //   alert("steam Id 输入错误");
@@ -15,10 +15,21 @@
     await invoke("save", { steamId, savePath })
       .then((message: string) => {
         console.log(message);
-        alert(message);
+        // alert(message);
+        Swal.fire({
+          title: "Success!",
+          icon: "success",
+          text: message,
+        });
       })
       .catch((error) => {
-        alert(error);
+        // alert(error);
+        Swal.fire({
+          title: "Error!",
+          text: error,
+          icon: "error",
+          confirmButtonText: "continue",
+        });
       });
   }
 
