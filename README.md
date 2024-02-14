@@ -1,5 +1,10 @@
 # GBFR-Tool
 
+## Language / 语言
+
+- [English](https://github.com/limitcool/gbfr-tool/blob/main/README-en.md)
+- [中文](https://github.com/limitcool/gbfr-tool/blob/main/README.md)
+
 `GBFR-Tool` 是一个用于 `Granblue Fantasy Relink` 存档修改的工具。
 
 ![界面图片](https://github.com/limitcool/gbfr-tool/blob/main/assets/screenshot.png?raw=true)
