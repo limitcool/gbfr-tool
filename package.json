@@ -13,6 +13,7 @@
   "dependencies": {
     "@tauri-apps/api": "^1.4.0",
     "svelte-file-dropzone": "^2.0.4",
+    "svelte-i18n": "^4.0.0",
     "svelte-tauri-filedrop": "^1.0.0",
     "sweetalert2": "^11.10.5"
   },

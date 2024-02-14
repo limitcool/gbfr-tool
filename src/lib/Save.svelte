@@ -2,8 +2,17 @@
   import FileDrop from "svelte-tauri-filedrop";
   import { invoke } from "@tauri-apps/api/tauri";
   import Swal from "sweetalert2";
+  import { addMessages, init, getLocaleFromNavigator, _ } from "svelte-i18n";
+  import en from "../locales/en.json";
+  import zhCN from "../locales/zh-CN.json";
+  addMessages("en", en);
+  addMessages("zh-CN", zhCN);
+  init({
+    fallbackLocale: "en",
+    initialLocale: getLocaleFromNavigator(),
+  });
   // import { fs } from "@tauri-apps/api";
-
+  console.log(getLocaleFromNavigator());
   let steamId;
   let savePath = "";
   async function save() {
@@ -46,21 +55,23 @@
   <FileDrop extensions={["dat"]} handleFiles={open} let:files>
     <div class="dropzone" class:droppable={files.length > 0}>
       <h2>
-        拖拽要修改的存档文件至此处。这份存档可能来自他人分享或是您之前更高等级的进度。
+        {$_("file_drag_and_drop_instruction")}
       </h2>
     </div>
   </FileDrop>
   <form class="row" on:submit|preventDefault={save}>
     <input
       id="steam-id-input"
-      placeholder="输入你的Steam id..."
+      placeholder={$_("steam_id_input_prompt")}
       required
       bind:value={steamId}
     />
 
-    <button type="submit">修改</button>
+    <button type="submit">{$_("modify_archive")}</button>
   </form>
-  <button class="clear-button" on:click={handleClearPath}>重新选择存档</button>
+  <button class="clear-button" on:click={handleClearPath}
+    >{$_("choose_archive_again")}</button
+  >
 </div>
 
 <style>
